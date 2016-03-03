@@ -19,9 +19,9 @@ $(function () {
             'background-size': "cover", '-o-background-size': "cover"
        });
  
-        setTimeout(nextBackground, 3000);
+        setTimeout(nextBackground, 7000);
     }
-    setTimeout(nextBackground, 3000);
+    setTimeout(nextBackground, 7000);
          body.css({'background': backgrounds[0],      'position': "relative", 'width': "100%",'height': "100%", 'background-position': "center",
             'background-repeat': "no-repeat",'-webkit-background-size': "cover", '-moz-background-size': "cover",
             'background-size': "cover", '-o-background-size': "cover"
