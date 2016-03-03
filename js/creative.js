@@ -4,6 +4,46 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+$(function () {
+    var body = $('#change');
+    var backgrounds = [
+      'url(img/home2.jpg)','url(img/home1.jpg)', 'url(img/home3.jpg)',
+     ];
+    var current = 0;
+
+    function nextBackground() {
+        body.css({
+            'background': backgrounds[current = ++current % backgrounds.length],
+           'position': "relative", 'width': "100%",'height': "100%", 'background-position': "center",
+            'background-repeat': "no-repeat",'-webkit-background-size': "cover", '-moz-background-size': "cover",
+            'background-size': "cover", '-o-background-size': "cover"
+       });
+ 
+        setTimeout(nextBackground, 3000);
+    }
+    setTimeout(nextBackground, 3000);
+         body.css({'background': backgrounds[0],      'position': "relative", 'width': "100%",'height': "100%", 'background-position': "center",
+            'background-repeat': "no-repeat",'-webkit-background-size': "cover", '-moz-background-size': "cover",
+            'background-size': "cover", '-o-background-size': "cover"
+});
+//   header {
+//     position: relative;
+//     width: 100%;
+//     min-height: auto;
+//     text-align: center;
+//     color: #fff;
+//     background-image: url(../img/splash.jpg);
+//     background-position: center;
+//     -webkit-background-size: cover;
+//     -moz-background-size: cover;
+//     background-size: cover;
+//     -o-background-size: cover;
+// }
+
+
+
+});
+
 (function($) {
     "use strict"; // Start of use strict
 
@@ -46,52 +86,3 @@
     new WOW().init();
 
 })(jQuery); // End of use strict
-
-
-var startY = 100;
-var stopY = 18000;
-
-$(window).scroll(function(){
-    checkY();
-});
-
-function checkY()
-{
-    console.log($(window).scrollTop()); 
-    if($(window).scrollTop() > startY && $(window).scrollTop() <= stopY)
-    {
-        console.log("Show"); 
-
-        $('.foxedDiv').show(); 
-    }
-    else
-    {
-        console.log("Hide"); 
-        $('.foxedDiv').hide();
-    }
-}
-
-checkY();
-
-
-
-
-var downloadLink = document.getElementById('subscribeButton');
-addListener(downloadLink, 'click', function() {
-  ga('send', 'event', 'button', 'click', 'nav-buttons');
-});
-
-
-/**
- * Utility to wrap the different behaviors between W3C-compliant browsers
- * and IE when adding event handlers.
- *
- * @param {Object} element Object on which to attach the event listener.
- * @param {string} type A string representing the event type to listen for
- *     (e.g. load, click, etc.).
- * @param {function()} callback The function that receives the notification.
- */
-function addListener(element, type, callback) {
- if (element.addEventListener) element.addEventListener(type, callback);
- else if (element.attachEvent) element.attachEvent('on' + type, callback);
-}
